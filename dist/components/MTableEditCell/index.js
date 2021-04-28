@@ -21,8 +21,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _core = require("@material-ui/core");
 
-var _styles = require("@material-ui/core/styles");
-
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { (0, _defineProperty2["default"])(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -182,7 +180,7 @@ MTableEditCell.propTypes = {
 };
 
 var _default = /*#__PURE__*/_react["default"].forwardRef(function MTableEditCellRef(props, ref) {
-  return (0, _styles.withTheme)( /*#__PURE__*/_react["default"].createElement(MTableEditCell, (0, _extends2["default"])({}, props, {
+  return (0, _core.withTheme)( /*#__PURE__*/_react["default"].createElement(MTableEditCell, (0, _extends2["default"])({}, props, {
     forwardedRef: ref
   })));
 });

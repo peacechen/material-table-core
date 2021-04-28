@@ -13,7 +13,7 @@ var _defineProperty2 = _interopRequireDefault(require("@babel/runtime/helpers/de
 
 var _IconButton = _interopRequireDefault(require("@material-ui/core/IconButton"));
 
-var _withStyles = _interopRequireDefault(require("@material-ui/core/styles/withStyles"));
+var _core = require("@material-ui/core");
 
 var _Tooltip = _interopRequireDefault(require("@material-ui/core/Tooltip"));
 
@@ -139,7 +139,7 @@ var MTableGroupRowRef = /*#__PURE__*/_react["default"].forwardRef(function MTabl
   }));
 });
 
-var MTablePaginationOuter = (0, _withStyles["default"])(actionsStyles, {
+var MTablePaginationOuter = (0, _core.withStyles)(actionsStyles, {
   withTheme: true
 })(MTableGroupRowRef);
 var _default = MTablePaginationOuter;

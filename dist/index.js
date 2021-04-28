@@ -109,7 +109,7 @@ var _propTypes = require("./prop-types");
 
 var _materialTable = _interopRequireDefault(require("./material-table"));
 
-var _withStyles = _interopRequireDefault(require("@material-ui/core/styles/withStyles"));
+var _core = require("@material-ui/core");
 
 var _components = require("./components");
 
@@ -134,7 +134,7 @@ var styles = function styles(theme) {
   };
 };
 
-var _default = (0, _withStyles["default"])(styles, {
+var _default = (0, _core.withStyles)(styles, {
   withTheme: true
 })(function (props) {
   return /*#__PURE__*/_react["default"].createElement(_materialTable["default"], (0, _extends2["default"])({}, props, {

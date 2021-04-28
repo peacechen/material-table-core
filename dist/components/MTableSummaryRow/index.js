@@ -12,8 +12,6 @@ exports["default"] = exports.styles = void 0;
 
 var React = _interopRequireWildcard(require("react"));
 
-var _withStyles = _interopRequireDefault(require("@material-ui/core/styles/withStyles"));
-
 var _core = require("@material-ui/core");
 
 var _utils = require("../MTableCell/utils");
@@ -124,6 +122,6 @@ var styles = function styles(theme) {
 
 exports.styles = styles;
 
-var _default = (0, _withStyles["default"])(styles)(MTableSummaryRow);
+var _default = (0, _core.withStyles)(styles)(MTableSummaryRow);
 
 exports["default"] = _default;

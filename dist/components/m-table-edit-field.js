@@ -205,9 +205,6 @@ var MTableEditField = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/_react["default"].createElement(_TextField["default"], (0, _extends2["default"])({}, this.getProps(), {
         fullWidth: true,
-        style: this.props.columnDef.type === 'numeric' ? {
-          "float": 'right'
-        } : {},
         type: this.props.columnDef.type === 'numeric' ? 'number' : 'text',
         placeholder: this.props.columnDef.editPlaceholder || this.props.columnDef.title,
         value: this.props.value === undefined ? '' : this.props.value,
@@ -221,7 +218,10 @@ var MTableEditField = /*#__PURE__*/function (_React$Component) {
           }
         },
         inputProps: {
-          'aria-label': this.props.columnDef.title
+          'aria-label': this.props.columnDef.title,
+          style: this.props.columnDef.type === 'numeric' ? {
+            textAlign: 'right'
+          } : {}
         }
       }));
     }
@@ -232,9 +232,6 @@ var MTableEditField = /*#__PURE__*/function (_React$Component) {
 
       return /*#__PURE__*/_react["default"].createElement(_TextField["default"], (0, _extends2["default"])({}, this.getProps(), {
         placeholder: this.props.columnDef.editPlaceholder || this.props.columnDef.title,
-        style: {
-          "float": 'right'
-        },
         type: "number",
         value: this.props.value === undefined ? '' : this.props.value,
         onChange: function onChange(event) {
@@ -253,7 +250,10 @@ var MTableEditField = /*#__PURE__*/function (_React$Component) {
           }
         },
         inputProps: {
-          'aria-label': this.props.columnDef.title
+          'aria-label': this.props.columnDef.title,
+          style: {
+            textAlign: 'right'
+          }
         },
         onKeyDown: this.props.onKeyDown,
         autoFocus: this.props.autoFocus

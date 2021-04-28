@@ -30,8 +30,6 @@ var _TableSortLabel = _interopRequireDefault(require("@material-ui/core/TableSor
 
 var _Checkbox = _interopRequireDefault(require("@material-ui/core/Checkbox"));
 
-var _withStyles = _interopRequireDefault(require("@material-ui/core/styles/withStyles"));
-
 var _reactBeautifulDnd = require("react-beautiful-dnd");
 
 var _core = require("@material-ui/core");
@@ -340,7 +338,7 @@ var MTableHeaderRef = /*#__PURE__*/_react["default"].forwardRef(function MTableH
   }));
 });
 
-var _default = (0, _withStyles["default"])(styles, {
+var _default = (0, _core.withStyles)(styles, {
   withTheme: true
 })(MTableHeaderRef);
 

@@ -15,8 +15,6 @@ var _propTypes = _interopRequireDefault(require("prop-types"));
 
 var _core = require("@material-ui/core");
 
-var _colorManipulator = require("@material-ui/core/styles/colorManipulator");
-
 function OverlayLoading(props) {
   return /*#__PURE__*/_react["default"].createElement("div", {
     ref: props.forwardedRef,
@@ -24,7 +22,7 @@ function OverlayLoading(props) {
       display: 'table',
       width: '100%',
       height: '100%',
-      backgroundColor: (0, _colorManipulator.fade)(props.theme.palette.background.paper, 0.7)
+      backgroundColor: (0, _core.fade)(props.theme.palette.background.paper, 0.7)
     }
   }, /*#__PURE__*/_react["default"].createElement("div", {
     style: {

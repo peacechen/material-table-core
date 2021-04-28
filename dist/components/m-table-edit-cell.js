@@ -29,7 +29,7 @@ var _TableCell = _interopRequireDefault(require("@material-ui/core/TableCell"));
 
 var _CircularProgress = _interopRequireDefault(require("@material-ui/core/CircularProgress"));
 
-var _withTheme = _interopRequireDefault(require("@material-ui/core/styles/withTheme"));
+var _core = require("@material-ui/core");
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
@@ -201,6 +201,6 @@ MTableEditCell.propTypes = {
   size: _propTypes["default"].string
 };
 
-var _default = (0, _withTheme["default"])(MTableEditCell);
+var _default = (0, _core.withTheme)(MTableEditCell);
 
 exports["default"] = _default;

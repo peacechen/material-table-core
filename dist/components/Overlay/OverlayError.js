@@ -13,7 +13,7 @@ var _react = _interopRequireDefault(require("react"));
 
 var _propTypes = _interopRequireDefault(require("prop-types"));
 
-var _colorManipulator = require("@material-ui/core/styles/colorManipulator");
+var _core = require("@material-ui/core");
 
 function OverlayError(props) {
   return /*#__PURE__*/_react["default"].createElement("div", {
@@ -22,7 +22,7 @@ function OverlayError(props) {
       display: 'table',
       width: '100%',
       height: '100%',
-      backgroundColor: (0, _colorManipulator.fade)(props.theme.palette.background.paper, 0.7)
+      backgroundColor: (0, _core.fade)(props.theme.palette.background.paper, 0.7)
     }
   }, /*#__PURE__*/_react["default"].createElement("div", {
     style: {

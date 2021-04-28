@@ -492,8 +492,15 @@ var DataManager = /*#__PURE__*/function () {
     }
   }, {
     key: "changeAllSelected",
-    value: function changeAllSelected(checked) {
+    value: function changeAllSelected(checked, selectionProps) {
       var selectedCount = 0;
+
+      var isChecked = function isChecked(row) {
+        var selectionResult = selectionProps ? selectionProps(row) : {
+          disabled: false
+        };
+        return row.tableData.disabled || selectionResult.disabled ? false : checked;
+      };
 
       if (this.isDataType('group')) {
         var setCheck = function setCheck(data) {
@@ -502,7 +509,7 @@ var DataManager = /*#__PURE__*/function () {
               setCheck(element.groups);
             } else {
               element.data.forEach(function (d) {
-                d.tableData.checked = d.tableData.disabled ? false : checked;
+                d.tableData.checked = isChecked(d);
                 selectedCount++;
               });
             }
@@ -511,9 +518,8 @@ var DataManager = /*#__PURE__*/function () {
 
         setCheck(this.groupedData);
       } else {
-        this.searchedData.map(function (row) {
-          row.tableData.checked = row.tableData.disabled ? false : checked;
-          return row;
+        this.searchedData.forEach(function (row) {
+          row.tableData.checked = isChecked(row);
         });
         selectedCount = this.searchedData.length;
       }
@@ -967,7 +973,7 @@ var DataManager = /*#__PURE__*/function () {
         };
 
         this.sortedData = sortGroups(this.sortedData, groups[0]); // If you have nested grouped rows and wanted to select one of those row
-        // there was an issue. 
+        // there was an issue.
         // -https://github.com/material-table-core/core/pull/74
         // -https://github.com/mbrn/material-table/issues/2258
         // -https://github.com/mbrn/material-table/issues/2249

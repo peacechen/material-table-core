@@ -49,7 +49,7 @@ var _dataManager = _interopRequireDefault(require("./utils/data-manager"));
 
 var _debounce = require("debounce");
 
-var _fastDeepEqual = _interopRequireDefault(require("fast-deep-equal"));
+var _react2 = _interopRequireDefault(require("fast-deep-equal/react"));
 
 var _core = require("@material-ui/core");
 
@@ -82,7 +82,7 @@ var MaterialTable = /*#__PURE__*/function (_React$Component) {
       return props.page !== undefined && props.totalCount !== undefined;
     });
     (0, _defineProperty2["default"])((0, _assertThisInitialized2["default"])(_this), "onAllSelected", function (checked) {
-      _this.dataManager.changeAllSelected(checked);
+      _this.dataManager.changeAllSelected(checked, _this.props.options.selectionProps);
 
       _this.setState(_this.dataManager.getRenderState(), function () {
         return _this.onSelectionChange();
@@ -696,11 +696,11 @@ var MaterialTable = /*#__PURE__*/function (_React$Component) {
       // const propsChanged = Object.entries(this.props).reduce((didChange, prop) => didChange || prop[1] !== prevProps[prop[0]], false);
       var fixedPrevColumns = this.cleanColumns(prevProps.columns);
       var fixedPropsColumns = this.cleanColumns(this.props.columns);
-      var propsChanged = !(0, _fastDeepEqual["default"])(fixedPrevColumns, fixedPropsColumns);
-      propsChanged = propsChanged || !(0, _fastDeepEqual["default"])(prevProps.options, this.props.options);
+      var propsChanged = !(0, _react2["default"])(fixedPrevColumns, fixedPropsColumns);
+      propsChanged = propsChanged || !(0, _react2["default"])(prevProps.options, this.props.options);
 
       if (!this.isRemoteData()) {
-        propsChanged = propsChanged || !(0, _fastDeepEqual["default"])(prevProps.data, this.props.data);
+        propsChanged = propsChanged || !(0, _react2["default"])(prevProps.data, this.props.data);
       }
 
       if (propsChanged) {

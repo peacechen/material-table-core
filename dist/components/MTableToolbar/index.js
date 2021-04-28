@@ -32,9 +32,7 @@ var _Tooltip = _interopRequireDefault(require("@material-ui/core/Tooltip"));
 
 var _Typography = _interopRequireDefault(require("@material-ui/core/Typography"));
 
-var _withStyles = _interopRequireDefault(require("@material-ui/core/styles/withStyles"));
-
-var _colorManipulator = require("@material-ui/core/styles/colorManipulator");
+var _core = require("@material-ui/core");
 
 var _classnames = _interopRequireDefault(require("classnames"));
 
@@ -171,21 +169,10 @@ function MTableToolbar(props) {
         fontSize: 12
       }
     }, localization.addRemoveColumns), props.columns.map(function (col) {
-      if (!col.hidden || col.hiddenByColumnsButton) {
-        return /*#__PURE__*/_react["default"].createElement("li", {
-          key: col.tableData.id
-        }, /*#__PURE__*/_react["default"].createElement(_MenuItem["default"], {
-          className: classes.formControlLabel,
-          component: "label",
-          htmlFor: "column-toggle-".concat(col.tableData.id),
-          disabled: col.removable === false
-        }, /*#__PURE__*/_react["default"].createElement(_Checkbox["default"], {
-          checked: !col.hidden,
-          id: "column-toggle-".concat(col.tableData.id),
-          onChange: function onChange() {
-            return props.onColumnsChanged(col, !col.hidden);
-          }
-        }), /*#__PURE__*/_react["default"].createElement("span", null, col.title)));
+      var hiddenFromColumnsButtonMenu = col.hiddenByColumnsButton !== undefined ? col.hiddenByColumnsButton : props.columnsHiddenInColumnsButton;
+
+      if (hiddenFromColumnsButtonMenu) {
+        return null;
       }
 
       return /*#__PURE__*/_react["default"].createElement("li", {
@@ -229,7 +216,10 @@ function MTableToolbar(props) {
       return /*#__PURE__*/_react["default"].createElement(_MenuItem["default"], {
         key: "".concat(menuitem.label).concat(index),
         onClick: function onClick() {
-          return menuitem.exportFunc(cols, datas);
+          menuitem.exportFunc(cols, datas);
+          setState({
+            exportButtonAnchorEl: null
+          });
         }
       }, menuitem.label);
     }))), /*#__PURE__*/_react["default"].createElement("span", null, /*#__PURE__*/_react["default"].createElement(props.components.Actions, {
@@ -259,7 +249,8 @@ function MTableToolbar(props) {
 
   function renderToolbarTitle(title) {
     var classes = props.classes;
-    var toolBarTitle = typeof title === 'string' ? /*#__PURE__*/_react["default"].createElement(_Typography["default"], {
+    var toolBarTitle = // eslint-disable-next-line multiline-ternary
+    typeof title === 'string' ? /*#__PURE__*/_react["default"].createElement(_Typography["default"], {
       variant: "h6",
       style: {
         whiteSpace: 'nowrap',
@@ -356,7 +347,7 @@ var styles = function styles(theme) {
     },
     highlight: theme.palette.type === 'light' ? {
       color: theme.palette.secondary.main,
-      backgroundColor: (0, _colorManipulator.lighten)(theme.palette.secondary.light, 0.85)
+      backgroundColor: (0, _core.lighten)(theme.palette.secondary.light, 0.85)
     } : {
       color: theme.palette.text.primary,
       backgroundColor: theme.palette.secondary.dark
@@ -389,6 +380,6 @@ var MTableToolbarRef = /*#__PURE__*/_react["default"].forwardRef(function MTable
   }));
 });
 
-var _default = (0, _withStyles["default"])(styles)(MTableToolbarRef);
+var _default = (0, _core.withStyles)(styles)(MTableToolbarRef);
 
 exports["default"] = _default;

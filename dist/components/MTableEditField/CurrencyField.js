@@ -21,9 +21,6 @@ function CurrencyField(_ref) {
   return /*#__PURE__*/_react["default"].createElement(_core.TextField, (0, _extends2["default"])({}, props, {
     ref: forwardedRef,
     placeholder: props.columnDef.editPlaceholder || props.columnDef.title,
-    style: {
-      "float": 'right'
-    },
     type: "number",
     value: props.value === undefined ? '' : props.value,
     onChange: function onChange(event) {
@@ -42,7 +39,10 @@ function CurrencyField(_ref) {
       }
     },
     inputProps: {
-      'aria-label': props.columnDef.title
+      'aria-label': props.columnDef.title,
+      style: {
+        textAlign: 'right'
+      }
     },
     onKeyDown: props.onKeyDown,
     autoFocus: props.autoFocus

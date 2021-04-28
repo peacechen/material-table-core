@@ -21,9 +21,6 @@ function MTextField(_ref) {
   return /*#__PURE__*/_react["default"].createElement(_core.TextField, (0, _extends2["default"])({}, props, {
     ref: forwardedRef,
     fullWidth: true,
-    style: props.columnDef.type === 'numeric' ? {
-      "float": 'right'
-    } : {},
     type: props.columnDef.type === 'numeric' ? 'number' : 'text',
     placeholder: props.columnDef.editPlaceholder || props.columnDef.title,
     value: props.value === undefined ? '' : props.value,
@@ -37,7 +34,10 @@ function MTextField(_ref) {
       }
     },
     inputProps: {
-      'aria-label': props.columnDef.title
+      'aria-label': props.columnDef.title,
+      style: props.columnDef.type === 'numeric' ? {
+        textAlign: 'right'
+      } : {}
     }
   }));
 }
