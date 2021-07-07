@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true
 });
-exports["default"] = void 0;
+exports['default'] = void 0;
 
 /**
  * Default data for `MaterialTable.options` attribute
@@ -46,10 +46,15 @@ var _default = {
   selection: false,
   selectionProps: {},
   sorting: true,
+  keepSortDirectionOnColumnSwitch: true,
   toolbar: true,
   defaultExpanded: false,
   detailPanelColumnAlignment: 'left',
+  detailPanelOffset: {
+    left: 0,
+    right: 0
+  },
   thirdSortClick: true,
   overflowY: 'auto'
 };
-exports["default"] = _default;
+exports['default'] = _default;
